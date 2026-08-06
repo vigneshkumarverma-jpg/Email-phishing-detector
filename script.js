@@ -413,5 +413,23 @@ function analyzeCustomEmail() {
     analysisResultBox.classList.remove('hidden');
 }
 
+// Naya Sahi Tarika:
+let currentIndex = 0;
+
+// Emails Shuffle Function
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// 💥 DHAYAN DEIN: Game start hone se PEHLE hi yahan shuffle chalao
+shuffleArray(emails); 
+
+function loadEmail() {
+    const current = emails[currentIndex];
+    // Baaki ka code...
+}
 // Initial Quiz Load on Page Open
 loadEmail();
