@@ -423,13 +423,3 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
-// 💥 DHAYAN DEIN: Game start hone se PEHLE hi yahan shuffle chalao
-shuffleArray(emails); 
-
-function loadEmail() {
-    const current = emails[currentIndex];
-    // Baaki ka code...
-}
-// Initial Quiz Load on Page Open
-loadEmail();
