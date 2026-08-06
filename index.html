@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security - Phishing Email Trainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Phishing Email Detector Trainer</h1>
+            <p>Can you spot the scam? Test your Cyber Security knowledge!</p>
+        </header>
+
+        <main>
+            <div id="email-card" class="card">
+                <div class="email-header">
+                    <p><strong>From:</strong> <span id="email-sender"></span></p>
+                    <p><strong>Subject:</strong> <span id="email-subject"></span></p>
+                </div>
+                <hr>
+                <div class="email-body">
+                    <p id="email-content"></p>
+                </div>
+                
+                <div class="actions">
+                    <button class="btn safe-btn" onclick="checkAnswer(false)">✅ Safe Email</button>
+                    <button class="btn scam-btn" onclick="checkAnswer(true)">🚨 Phishing Scam</button>
+                </div>
+            </div>
+
+            <div id="result-box" class="result-box hidden">
+                <h2 id="result-title"></h2>
+                <p id="result-reason"></p>
+                <button class="btn next-btn" onclick="nextEmail()">Next Email ➡️</button>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h2>🔍 Live Email Safety Tester</h2>
+                <p style="margin-bottom:1rem; font-size:0.9rem; color:#cbd5e1;">Paste any email text below to test it live:</p>
+                
+                <textarea id="customEmailInput" rows="4" placeholder="Paste email subject or body here..." style="width:100%; padding:10px; border-radius:8px; background:#0f172a; color:white; border:1px solid #334155; font-size:1rem;"></textarea>
+                
+                <button class="btn safe-btn" style="margin-top:10px; width:100%;" onclick="analyzeCustomEmail()">Analyze Email Live 🚀</button>
+
+                <div id="customResult" class="result-box hidden" style="margin-top:10px;"></div>
+            </div>
+        </main>
+    </div>
+
+    <header>
+    <h1>🛡️ Phishing Email Detector Trainer</h1>
+    <p>Can you spot the scam? Test your Cyber Security knowledge!</p>
+    <div style="margin-top: 10px; background: #334155; padding: 6px 12px; border-radius: 20px; display: inline-block; border: 1px solid #38bdf8;">
+        <p style="font-size: 0.85rem; color: #38bdf8; font-weight: bold;">
+            👨‍💻 Developed & Designed by: <span style="color:#ffffff;">Vignesh Kumar Verma</span> (1st Year B.Tech CSE-AI)
+        </p>
+    </div>
+</header>
+
+    <script src="script.js"></script>
+</body>
+</html>

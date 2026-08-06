@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 650px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+.card {
+    background-color: #1e293b;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+}
+
+.email-header p {
+    margin-bottom: 0.5rem;
+    color: #cbd5e1;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #334155;
+    margin: 1rem 0;
+}
+
+.email-body {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #e2e8f0;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.safe-btn { background-color: #22c55e; color: white; }
+.safe-btn:hover { background-color: #16a34a; }
+
+.scam-btn { background-color: #ef4444; color: white; }
+.scam-btn:hover { background-color: #dc2626; }
+
+.next-btn { background-color: #38bdf8; color: #0f172a; margin-top: 1rem; }
+
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #1e293b;
+    border: 2px solid #38bdf8;
+}
+
+.hidden { display: none; }
