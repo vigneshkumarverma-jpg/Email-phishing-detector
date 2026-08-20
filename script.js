@@ -4,7 +4,8 @@
    BRANCH: B.Tech CSE (AI) - 1st Year
    COURSE: Web Development / Cyber Security Project
    ========================================================= */
-// 40+ Examples Array (Fake & Real Emails)
+
+// 1. Data Array
 const emails = [
     // --- PHISHING SCAMS (1-20) ---
     {
@@ -291,7 +292,9 @@ const emails = [
     }
 ];
 
-// Array ko random mix karne ke liye
+// 2. State & Helper Functions
+let currentIndex = 0;
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -299,11 +302,7 @@ function shuffleArray(array) {
     }
 }
 
-// Array mix kar do
-shuffleArray(emails);
-
-let currentIndex = 0;
-
+// 3. Trainer App Functions
 function loadEmail() {
     const current = emails[currentIndex];
     document.getElementById('email-sender').innerText = current.sender;
@@ -335,22 +334,21 @@ function nextEmail() {
     loadEmail();
 }
 
-// Live Analyzer Logic (Smart Multi-Layer Detection)
+// 4. Live Analyzer Logic
 function analyzeCustomEmail() {
     const rawText = document.getElementById('customEmailInput').value;
     const text = rawText.toLowerCase();
     const analysisResultBox = document.getElementById('customResult');
     
-    if(!text.trim()) {
+    if (!text.trim()) {
         alert("Pehle koi email text paste karein!");
         return;
     }
 
-    // 1. Whitelist Domain Check
     const trustedDomains = [".gov.in", ".edu.in", ".nic.in", ".ac.in", "uidai.gov.in", "sbi.co.in", "incometax.gov.in"];
     const isWhitelisted = trustedDomains.some(domain => text.includes(domain));
 
-    if(isWhitelisted) {
+    if (isWhitelisted) {
         analysisResultBox.innerHTML = `
             <h3 style="color:#22c55e;">✅ Verified Safe Email</h3>
             <p style="margin-top:5px; font-size:0.95rem;"><b>Security Score: 100/100</b> (Low Risk)</p>
@@ -360,32 +358,31 @@ function analyzeCustomEmail() {
         return;
     }
 
-    // 2. Risk Scoring Engine
     let riskScore = 0;
     let detectedFlags = [];
 
-    if(/(urgent|immediately|suspended|24 hours|2 hours|action required|account locked|unauthorized login)/i.test(text)) {
+    if (/(urgent|immediately|suspended|24 hours|2 hours|action required|account locked|unauthorized login)/i.test(text)) {
         riskScore += 25;
         detectedFlags.push("⚠️ High Urgency / Social Engineering Language (+25 Risk)");
     }
-    if(/(otp|password|pin|cvv|bank account|credit card|ssn|aadhaar number)/i.test(text)) {
+    if (/(otp|password|pin|cvv|bank account|credit card|ssn|aadhaar number)/i.test(text)) {
         riskScore += 35;
         detectedFlags.push("🚨 Sensitive Info Request (OTP / Password / Bank Details) (+35 Risk)");
     }
-    if(/(bit\.ly|tinyurl|is\.gd|cutt\.ly|http:\/\/|click here|verify-account|login-now)/i.test(text)) {
+    if (/(bit\.ly|tinyurl|is\.gd|cutt\.ly|http:\/\/|click here|verify-account|login-now)/i.test(text)) {
         riskScore += 30;
         detectedFlags.push("🔗 Unsecure or Shortened / Hidden Link Detected (+30 Risk)");
     }
-    if(/(\$|dollar|lottery|winner|free gift|cash prize|claim now|reward)/i.test(text)) {
+    if (/(\$|dollar|lottery|winner|free gift|cash prize|claim now|reward)/i.test(text)) {
         riskScore += 20;
         detectedFlags.push("💰 Financial Bait / Unrealistic Reward Offer (+20 Risk)");
     }
-    if(/(dear customer|dear user|dear client|dear account holder)/i.test(text)) {
+    if (/(dear customer|dear user|dear client|dear account holder)/i.test(text)) {
         riskScore += 10;
         detectedFlags.push("👤 Generic Non-Personalized Greeting (+10 Risk)");
     }
 
-    if(riskScore >= 40) {
+    if (riskScore >= 40) {
         analysisResultBox.innerHTML = `
             <h3 style="color:#ef4444;">🚨 High Risk: Suspicious Email Detected!</h3>
             <p style="margin-top:5px; font-weight:bold; color:#f87171;">Calculated Risk Score: ${riskScore}% (Phishing Alert)</p>
@@ -394,7 +391,7 @@ function analyzeCustomEmail() {
                 ${detectedFlags.map(f => `<li style="margin-bottom:4px;">${f}</li>`).join('')}
             </ul>
         `;
-    } else if(riskScore > 0 && riskScore < 40) {
+    } else if (riskScore > 0 && riskScore < 40) {
         analysisResultBox.innerHTML = `
             <h3 style="color:#eab308;">⚠️ Medium Risk: Exercise Caution</h3>
             <p style="margin-top:5px; font-weight:bold; color:#fde047;">Calculated Risk Score: ${riskScore}% (Low Threat)</p>
@@ -413,13 +410,6 @@ function analyzeCustomEmail() {
     analysisResultBox.classList.remove('hidden');
 }
 
-// Naya Sahi Tarika:
-let currentIndex = 0;
-
-// Emails Shuffle Function
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+// 5. Initialize Application
+shuffleArray(emails);
+loadEmail();
